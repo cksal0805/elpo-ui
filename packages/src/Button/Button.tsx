@@ -1,11 +1,129 @@
 import React from 'react';
-import { IButtonProps } from './Button.type';
+import styled, { css } from 'styled-components';
+import { darken, lighten } from 'polished';
+import { IButtonProps, IStyleButtonProps } from './Button.type';
 
-function Button({ children }:IButtonProps):JSX.Element {
+interface IButtonTheme {
+  color: {
+    [key: string]: string
+  }
+  size: {
+    [key: string]: string
+  }
+}
+const buttonTheme: IButtonTheme = {
+  color: {
+    primary: '#3585f6',
+    secondary: '#38d9a9',
+    inherit: 'inherit',
+  },
+  size: {
+    small: '100px',
+    medium: '200px',
+    large: '300px',
+  }
+}
+const themeStyle = css<IStyleButtonProps>`
+  ${({ theme, color, animation }) => {
+    if (theme === 'fill') {
+      return css`
+        border: 1px solid ${buttonTheme.color[color]};
+        background-color: ${buttonTheme.color[color]};
+        color: white;
+        &:hover {
+          background-color: ${animation && darken(0.06, buttonTheme.color[color])};
+          transition: 0.6s;
+        }
+      `
+    }
+    if (theme === 'outlined') {
+      return css`
+        border: 1px solid ${buttonTheme.color[color]};
+        background-color: transparent;
+        color: ${buttonTheme.color[color]};
+        &:hover {
+          background-color: ${animation && lighten(0.37, buttonTheme.color[color])};
+          transition: 0.6s;
+        }
+      `
+    }
+    if (theme === 'text') {
+      return css`
+        border: none;
+        background-color: transparent;
+        color: ${buttonTheme.color[color]};
+        &:hover {
+          background-color: ${animation && lighten(0.37, buttonTheme.color[color])};
+          transition: 0.6s;
+        }
+      `
+    }
+  }
+  }
+`;
+const mobileStyle = css<IStyleButtonProps>`
+  ${({ mobileViewsize, size }) => css`
+    & .mobile {
+      display: none;
+    }
+    @media screen and (max-width: ${mobileViewsize}px) {
+      width: calc(${buttonTheme.size[size]} / 2);
+      & .mobile {
+        display: block;
+      }
+      & .init {
+        display: none;
+      }
+    }
+  `
+  }
+`
+const StyledButton = styled.button<IStyleButtonProps>`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 0;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 500;
+  width: ${({ size }) => (buttonTheme.size[size])};
+  ${({mobileViewsize}) => mobileViewsize && mobileStyle}
+  ${themeStyle}
+`
+
+function Button({
+  children, 
+  theme='fill',
+  animation=true,
+  color='primary',
+  size='medium',
+  startIcon,
+  endIcon,
+  mobileViewButton,
+  disabled=false,
+ }:IButtonProps):JSX.Element {
   return (
-    <button type="button">
-      {children}
-    </button>
+    <StyledButton
+      disabled = {disabled}
+      theme = {theme}
+      color = {color}
+      animation = {animation}
+      size = {size}
+      mobileViewsize = {mobileViewButton?.viewSize}
+    >
+      {
+      mobileViewButton && 
+      <span className="mobile">
+        <span>{mobileViewButton.icon}</span>
+      </span>
+      }
+      <span className="init">
+        {startIcon && <span>{startIcon}</span>}
+        {children}
+        {endIcon && <span>{endIcon}</span>}
+      </span>
+    </StyledButton>
   );
 }
 
