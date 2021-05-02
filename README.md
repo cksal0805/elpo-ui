@@ -39,7 +39,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ---
 
-- [Button]() (Coming soon...)
+- [Button](https://github.com/cksal0805/elpo-ui/blob/components/button/docs/Button.md)
 - [Modal]() (Coming soon...)
 - [HeatMap]() (Coming soon...)
 - [Input]() (Coming soon...)
