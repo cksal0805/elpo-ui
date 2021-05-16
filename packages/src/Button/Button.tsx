@@ -23,59 +23,52 @@ const buttonTheme: IButtonTheme = {
     large: '300px',
   }
 }
-const themeStyle = css<IStyleButtonProps>`
-  ${({ theme, color, animation }) => {
-    if (theme === 'fill') {
-      return css`
-        border: 1px solid ${buttonTheme.color[color]};
-        background-color: ${buttonTheme.color[color]};
-        color: white;
-        &:hover {
-          background-color: ${animation && darken(0.06, buttonTheme.color[color])};
-          transition: 0.6s;
-        }
-      `
-    }
-    if (theme === 'outlined') {
-      return css`
-        border: 1px solid ${buttonTheme.color[color]};
-        background-color: transparent;
-        color: ${buttonTheme.color[color]};
-        &:hover {
-          background-color: ${animation && lighten(0.37, buttonTheme.color[color])};
-          transition: 0.6s;
-        }
-      `
-    }
-    if (theme === 'text') {
-      return css`
-        border: none;
-        background-color: transparent;
-        color: ${buttonTheme.color[color]};
-        &:hover {
-          background-color: ${animation && lighten(0.37, buttonTheme.color[color])};
-          transition: 0.6s;
-        }
-      `
-    }
-  }
-  }
-`;
-const mobileStyle = css<IStyleButtonProps>`
-  ${({ mobileViewsize, size }) => css`
-    & .mobile {
-      display: none;
-    }
-    @media screen and (max-width: ${mobileViewsize}px) {
-      width: calc(${buttonTheme.size[size]} / 2);
-      & .mobile {
-        display: block;
-      }
-      & .init {
-        display: none;
-      }
+const fillStyle = ({ color, animation }: IStyleButtonProps) => {
+  return css`
+    border: 1px solid ${buttonTheme.color[color]};
+    background-color: ${buttonTheme.color[color]};
+    color: white;
+    &:hover {
+      background-color: ${animation && darken(0.06, buttonTheme.color[color])};
+      transition: 0.6s;
     }
   `
+}
+const outlinedStyle = ({ color, animation }: IStyleButtonProps) => {
+  return css`
+    border: 1px solid ${buttonTheme.color[color]};
+    background-color: transparent;
+    color: ${buttonTheme.color[color]};
+    &:hover {
+      background-color: ${animation && lighten(0.37, buttonTheme.color[color])};
+      transition: 0.6s;
+    }
+  `
+}
+
+const textStyle = ({ color, animation }: IStyleButtonProps) => {
+  return css`
+    border: none;
+    background-color: transparent;
+    color: ${buttonTheme.color[color]};
+    &:hover {
+      background-color: ${animation && lighten(0.37, buttonTheme.color[color])};
+      transition: 0.6s;
+    }
+  `
+}
+const mobileStyle = ({ mobileViewsize, size }: IStyleButtonProps) => css`
+  & .mobile {
+    display: none;
+  }
+  @media screen and (max-width: ${mobileViewsize}px) {
+    width: calc(${buttonTheme.size[size]} / 2);
+    & .mobile {
+      display: block;
+    }
+    & .init {
+      display: none;
+    }
   }
 `
 const StyledButton = styled.button<IStyleButtonProps>`
@@ -89,9 +82,16 @@ const StyledButton = styled.button<IStyleButtonProps>`
   font-weight: 500;
   width: ${({ size }) => (buttonTheme.size[size])};
   ${({mobileViewsize}) => mobileViewsize && mobileStyle}
-  ${themeStyle}
+  ${({ theme }) => {
+    if (theme === 'fill') {
+      return fillStyle;
+    } else if (theme === 'outlined') {
+      return outlinedStyle;
+    } else {
+      return textStyle;
+    }}
+  }
 `
-
 function Button({
   children, 
   theme='fill',

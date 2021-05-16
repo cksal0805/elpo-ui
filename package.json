@@ -1,6 +1,6 @@
 {
   "name": "elpo-ui",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "UI Component library",
   "main": "./build/index.js",
   "module": "./build/index.es.js",
