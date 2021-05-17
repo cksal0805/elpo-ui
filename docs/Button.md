@@ -22,3 +22,28 @@ import { Button } from 'elpo-ui';
 |endIcon|React.ReactNode||Element placed after the children.|
 |mobileViewButton|{icon: React.ReactNode, viewSize: string}||MobileViewButton allows you to experience reactive optimized button ui.|
 |onClick|func()||onClick function|
+
+## Used
+
+```js
+import * as React from 'react';
+import ReactDOM from 'react-dom';
+import { Button } from 'elpo-ui';
+
+function App():JSX.Element {
+  return (
+    <Button
+      theme="outlined"
+      endIcon={<img src="/images/write.png" alt="icon" width={20} height={20} />}
+      mobileViewButton = {{
+        icon: <img src="/images/write.png" alt="icon" width={20} height={20} />,
+        viewSize: '700',
+      }}
+    >
+      ADD
+    </Button>
+  )
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```

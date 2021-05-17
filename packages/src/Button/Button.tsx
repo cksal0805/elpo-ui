@@ -90,7 +90,6 @@ const StyledButton = styled.button<IStyleButtonProps>`
   cursor: pointer;
   font-weight: 500;
   box-sizing: border-box;
-  line-height: 1.75;
   letter-spacing: 0.02857em;
   text-transform: uppercase;
   padding: ${({ size }) => (buttonTheme.size[size])};
