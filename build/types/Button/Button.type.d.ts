@@ -5,6 +5,7 @@ export interface IStyleButtonProps {
     animation: boolean;
     size: 'large' | 'medium' | 'small';
     mobileViewsize: string | undefined;
+    disabled: boolean;
 }
 export interface IButtonProps {
     children: React.ReactNode;
