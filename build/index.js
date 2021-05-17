@@ -38,9 +38,9 @@ var buttonTheme = {
         inherit: 'inherit',
     },
     size: {
-        small: '100px',
-        medium: '200px',
-        large: '300px',
+        small: '4px 10px',
+        medium: '8px 22px',
+        large: '10px 34px',
     }
 };
 var fillStyle = function (_a) {
@@ -60,10 +60,12 @@ var textStyle = function (_a) {
 };
 var mobileStyle = function (_a) {
     var mobileViewsize = _a.mobileViewsize, size = _a.size;
-    return styled.css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  & .mobile {\n    display: none;\n  }\n  @media screen and (max-width: ", "px) {\n    width: calc(", " / 2);\n    & .mobile {\n      display: block;\n    }\n    & .init {\n      display: none;\n    }\n  }\n"], ["\n  & .mobile {\n    display: none;\n  }\n  @media screen and (max-width: ", "px) {\n    width: calc(", " / 2);\n    & .mobile {\n      display: block;\n    }\n    & .init {\n      display: none;\n    }\n  }\n"])), mobileViewsize, buttonTheme.size[size]);
+    return styled.css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  & .mobile {\n    display: none;\n  }\n  @media screen and (max-width: ", "px) {\n    padding: ", ";\n    & .mobile {\n      display: block;\n    }\n    & .init {\n      display: none;\n    }\n  }\n"], ["\n  & .mobile {\n    display: none;\n  }\n  @media screen and (max-width: ", "px) {\n    padding: ", ";\n    & .mobile {\n      display: block;\n    }\n    & .init {\n      display: none;\n    }\n  }\n"])), mobileViewsize, buttonTheme.size[size]);
 };
-var StyledButton = styled__default['default'].button(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  justify-content: space-around;\n  border: 0;\n  padding: 10px;\n  border-radius: 3px;\n  cursor: pointer;\n  font-weight: 500;\n  width: ", ";\n  ", "\n  ", "\n"], ["\n  display: flex;\n  align-items: center;\n  justify-content: space-around;\n  border: 0;\n  padding: 10px;\n  border-radius: 3px;\n  cursor: pointer;\n  font-weight: 500;\n  width: ", ";\n  ", "\n  ",
-    "\n"])), function (_a) {
+var StartIcon = styled__default['default'].span(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  display: inherit;\n  margin-left: -4px;\n  margin-right: 8px;\n"], ["\n  display: inherit;\n  margin-left: -4px;\n  margin-right: 8px;\n"])));
+var EndIcon = styled__default['default'].span(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  display: inherit;\n  margin-left: 8px;\n  margin-right: -4px;\n"], ["\n  display: inherit;\n  margin-left: 8px;\n  margin-right: -4px;\n"])));
+var StyledButton = styled__default['default'].button(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  border: 0;\n  border-radius: 3px;\n  cursor: pointer;\n  font-weight: 500;\n  box-sizing: border-box;\n  padding: ", ";\n  ", "\n  ", "\n  & .init {\n    display: flex;\n    align-items: inherit;\n    justify-content: inherit;\n    width: 100%;\n  }\n"], ["\n  border: 0;\n  border-radius: 3px;\n  cursor: pointer;\n  font-weight: 500;\n  box-sizing: border-box;\n  padding: ", ";\n  ", "\n  ",
+    "\n  & .init {\n    display: flex;\n    align-items: inherit;\n    justify-content: inherit;\n    width: 100%;\n  }\n"])), function (_a) {
     var size = _a.size;
     return (buttonTheme.size[size]);
 }, function (_a) {
@@ -82,17 +84,17 @@ var StyledButton = styled__default['default'].button(templateObject_5 || (templa
     }
 });
 function Button(_a) {
-    var children = _a.children, _b = _a.theme, theme = _b === void 0 ? 'fill' : _b, _c = _a.animation, animation = _c === void 0 ? true : _c, _d = _a.color, color = _d === void 0 ? 'primary' : _d, _e = _a.size, size = _e === void 0 ? 'medium' : _e, startIcon = _a.startIcon, endIcon = _a.endIcon, mobileViewButton = _a.mobileViewButton, _f = _a.disabled, disabled = _f === void 0 ? false : _f;
-    return (React__default['default'].createElement(StyledButton, { disabled: disabled, theme: theme, color: color, animation: animation, size: size, mobileViewsize: mobileViewButton === null || mobileViewButton === void 0 ? void 0 : mobileViewButton.viewSize },
+    var children = _a.children, _b = _a.theme, theme = _b === void 0 ? 'fill' : _b, _c = _a.animation, animation = _c === void 0 ? true : _c, _d = _a.color, color = _d === void 0 ? 'primary' : _d, _e = _a.size, size = _e === void 0 ? 'medium' : _e, startIcon = _a.startIcon, endIcon = _a.endIcon, mobileViewButton = _a.mobileViewButton, _f = _a.disabled, disabled = _f === void 0 ? false : _f, onClick = _a.onClick;
+    return (React__default['default'].createElement(StyledButton, { disabled: disabled, theme: theme, color: color, animation: animation, size: size, mobileViewsize: mobileViewButton === null || mobileViewButton === void 0 ? void 0 : mobileViewButton.viewSize, onClick: onClick },
         mobileViewButton &&
             React__default['default'].createElement("span", { className: "mobile" },
                 React__default['default'].createElement("span", null, mobileViewButton.icon)),
         React__default['default'].createElement("span", { className: "init" },
-            startIcon && React__default['default'].createElement("span", null, startIcon),
-            children,
-            endIcon && React__default['default'].createElement("span", null, endIcon))));
+            startIcon && React__default['default'].createElement(StartIcon, null, startIcon),
+            React__default['default'].createElement("span", null, children),
+            endIcon && React__default['default'].createElement(EndIcon, null, endIcon))));
 }
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;
 
 exports.Button = Button;
 //# sourceMappingURL=index.js.map

@@ -21,3 +21,4 @@ import { Button } from 'elpo-ui';
 |startIcon|React.ReactNode||Element placed before the children.|
 |endIcon|React.ReactNode||Element placed after the children.|
 |mobileViewButton|{icon: React.ReactNode, viewSize: string}||MobileViewButton allows you to experience reactive optimized button ui.|
+|onClick|func()||onClick function|

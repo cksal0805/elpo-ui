@@ -21,5 +21,6 @@ export interface IButtonProps {
   mobileViewButton?: {
     icon: React.ReactNode,
     viewSize: string,
-  }
+  },
+  onClick?: () => void
 } 

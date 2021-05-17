@@ -18,9 +18,9 @@ const buttonTheme: IButtonTheme = {
     inherit: 'inherit',
   },
   size: {
-    small: '100px',
-    medium: '200px',
-    large: '300px',
+    small: '4px 10px',
+    medium: '8px 22px',
+    large: '10px 34px',
   }
 }
 const fillStyle = ({ color, animation, disabled }: IStyleButtonProps) => {
@@ -64,7 +64,7 @@ const mobileStyle = ({ mobileViewsize, size }: IStyleButtonProps) => css`
     display: none;
   }
   @media screen and (max-width: ${mobileViewsize}px) {
-    width: calc(${buttonTheme.size[size]} / 2);
+    padding: ${buttonTheme.size[size]};
     & .mobile {
       display: block;
     }
@@ -73,16 +73,23 @@ const mobileStyle = ({ mobileViewsize, size }: IStyleButtonProps) => css`
     }
   }
 `
+const StartIcon = styled.span`
+  display: inherit;
+  margin-left: -4px;
+  margin-right: 8px;
+`
+const EndIcon = styled.span`
+  display: inherit;
+  margin-left: 8px;
+  margin-right: -4px;
+`
 const StyledButton = styled.button<IStyleButtonProps>`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   border: 0;
-  padding: 10px;
   border-radius: 3px;
   cursor: pointer;
   font-weight: 500;
-  width: ${({ size }) => (buttonTheme.size[size])};
+  box-sizing: border-box;
+  padding: ${({ size }) => (buttonTheme.size[size])};
   ${({mobileViewsize}) => mobileViewsize && mobileStyle}
   ${({ theme }) => {
     if (theme === 'fill') {
@@ -92,6 +99,12 @@ const StyledButton = styled.button<IStyleButtonProps>`
     } else {
       return textStyle;
     }}
+  }
+  & .init {
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+    width: 100%;
   }
 `
 function Button({
@@ -104,6 +117,7 @@ function Button({
   endIcon,
   mobileViewButton,
   disabled=false,
+  onClick
  }:IButtonProps):JSX.Element {
   return (
     <StyledButton
@@ -113,6 +127,7 @@ function Button({
       animation = {animation}
       size = {size}
       mobileViewsize = {mobileViewButton?.viewSize}
+      onClick={onClick}
     >
       {
       mobileViewButton && 
@@ -121,9 +136,9 @@ function Button({
       </span>
       }
       <span className="init">
-        {startIcon && <span>{startIcon}</span>}
-        {children}
-        {endIcon && <span>{endIcon}</span>}
+        {startIcon && <StartIcon>{startIcon}</StartIcon>}
+        <span>{children}</span>
+        {endIcon && <EndIcon>{endIcon}</EndIcon>}
       </span>
     </StyledButton>
   );

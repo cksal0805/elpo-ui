@@ -19,6 +19,16 @@ FillButton.args = {
     viewSize: '1000',
   },
 };
+export const WithStartIconButton = Template.bind({});
+WithStartIconButton.args = {
+  theme: 'fill',
+  startIcon: <div>A</div>,
+};
+export const WithEndIconButton = Template.bind({});
+WithEndIconButton.args = {
+  theme: 'fill',
+  endIcon: <div>A</div>
+};
 
 export const FillDisabledButton = Template.bind({});
 FillDisabledButton.args = {
