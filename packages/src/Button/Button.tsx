@@ -23,36 +23,38 @@ const buttonTheme: IButtonTheme = {
     large: '300px',
   }
 }
-const fillStyle = ({ color, animation }: IStyleButtonProps) => {
+const fillStyle = ({ color, animation, disabled }: IStyleButtonProps) => {
+  const selectColor = disabled? '#e0e0e0' : buttonTheme.color[color];
   return css`
-    border: 1px solid ${buttonTheme.color[color]};
-    background-color: ${buttonTheme.color[color]};
-    color: white;
+    background-color: ${selectColor};
+    color: ${disabled ? '#a9a9a9' : 'white'};
     &:hover {
-      background-color: ${animation && darken(0.06, buttonTheme.color[color])};
+      background-color: ${!disabled && animation && darken(0.06, selectColor)};
       transition: 0.6s;
     }
   `
 }
-const outlinedStyle = ({ color, animation }: IStyleButtonProps) => {
+const outlinedStyle = ({ color, animation, disabled }: IStyleButtonProps) => {
+  const selectColor = disabled? '#e0e0e0' : buttonTheme.color[color];
   return css`
-    border: 1px solid ${buttonTheme.color[color]};
+    border: 1px solid ${selectColor};
     background-color: transparent;
-    color: ${buttonTheme.color[color]};
+    color: ${selectColor};
     &:hover {
-      background-color: ${animation && lighten(0.37, buttonTheme.color[color])};
+      background-color: ${!disabled && animation && lighten(0.37, buttonTheme.color[color])};
       transition: 0.6s;
     }
   `
 }
 
-const textStyle = ({ color, animation }: IStyleButtonProps) => {
+const textStyle = ({ color, animation, disabled }: IStyleButtonProps) => {
+  const selectColor = disabled? '#e0e0e0' : buttonTheme.color[color];
   return css`
     border: none;
     background-color: transparent;
-    color: ${buttonTheme.color[color]};
+    color: ${selectColor};
     &:hover {
-      background-color: ${animation && lighten(0.37, buttonTheme.color[color])};
+      background-color: ${!disabled && animation && lighten(0.37, buttonTheme.color[color])};
       transition: 0.6s;
     }
   `
