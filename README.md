@@ -2,7 +2,7 @@
 
 💡 This library is a react-ui components library
 
-![npm package](https://img.shields.io/badge/npm%20package-v0.0.1-brightgreen.svg)
+![npm package](https://img.shields.io/badge/npm%20package-v1.0.0-brightgreen.svg)
 
 - Supports typescript as a basis.
 - skill: react-hooks, typescript, styled-components, rollup, storybook, jest, npm
@@ -43,3 +43,8 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 - [Modal]() (Coming soon...)
 - [HeatMap]() (Coming soon...)
 - [Input]() (Coming soon...)
+
+## Version
+
+- [X]  v.0.0.1 - add init file setting
+- [X]  v.1.0.0 - update button component
