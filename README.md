@@ -2,7 +2,7 @@
 
 💡 This library is a react-ui components library
 
-![npm package](https://img.shields.io/badge/npm%20package-v1.0.0-brightgreen.svg)
+![npm package](https://img.shields.io/badge/npm%20package-v1.0.2-brightgreen.svg)
 
 - Supports typescript as a basis.
 - skill: react-hooks, typescript, styled-components, rollup, storybook, jest, npm

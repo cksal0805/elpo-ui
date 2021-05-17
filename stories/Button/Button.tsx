@@ -84,12 +84,22 @@ const EndIcon = styled.span`
   margin-right: -4px;
 `
 const StyledButton = styled.button<IStyleButtonProps>`
+  display: inline-flex;
   border: 0;
   border-radius: 3px;
   cursor: pointer;
   font-weight: 500;
   box-sizing: border-box;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
   padding: ${({ size }) => (buttonTheme.size[size])};
+  & .init {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
   ${({mobileViewsize}) => mobileViewsize && mobileStyle}
   ${({ theme }) => {
     if (theme === 'fill') {
@@ -99,12 +109,6 @@ const StyledButton = styled.button<IStyleButtonProps>`
     } else {
       return textStyle;
     }}
-  }
-  & .init {
-    display: flex;
-    align-items: inherit;
-    justify-content: inherit;
-    width: 100%;
   }
 `
 function Button({

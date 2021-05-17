@@ -14,9 +14,10 @@ export const FillButton = Template.bind({});
 FillButton.args = {
   theme: 'fill',
   size: 'medium',
+  startIcon: <img src="/write.png" alt="plus" />,
   mobileViewButton: {
-    icon: <div>mo</div>,
-    viewSize: '1000',
+    icon: <img src="/write.png" alt="plus" />,
+    viewSize: '700',
   },
 };
 export const WithStartIconButton = Template.bind({});

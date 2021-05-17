@@ -55,8 +55,8 @@ var mobileStyle = function (_a) {
 };
 var StartIcon = styled.span(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  display: inherit;\n  margin-left: -4px;\n  margin-right: 8px;\n"], ["\n  display: inherit;\n  margin-left: -4px;\n  margin-right: 8px;\n"])));
 var EndIcon = styled.span(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  display: inherit;\n  margin-left: 8px;\n  margin-right: -4px;\n"], ["\n  display: inherit;\n  margin-left: 8px;\n  margin-right: -4px;\n"])));
-var StyledButton = styled.button(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  border: 0;\n  border-radius: 3px;\n  cursor: pointer;\n  font-weight: 500;\n  box-sizing: border-box;\n  padding: ", ";\n  ", "\n  ", "\n  & .init {\n    display: flex;\n    align-items: inherit;\n    justify-content: inherit;\n    width: 100%;\n  }\n"], ["\n  border: 0;\n  border-radius: 3px;\n  cursor: pointer;\n  font-weight: 500;\n  box-sizing: border-box;\n  padding: ", ";\n  ", "\n  ",
-    "\n  & .init {\n    display: flex;\n    align-items: inherit;\n    justify-content: inherit;\n    width: 100%;\n  }\n"])), function (_a) {
+var StyledButton = styled.button(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  display: inline-flex;\n  border: 0;\n  border-radius: 3px;\n  cursor: pointer;\n  font-weight: 500;\n  box-sizing: border-box;\n  line-height: 1.75;\n  letter-spacing: 0.02857em;\n  text-transform: uppercase;\n  padding: ", ";\n  & .init {\n    width: 100%;\n    display: inherit;\n    align-items: inherit;\n    justify-content: inherit;\n  }\n  ", "\n  ", "\n"], ["\n  display: inline-flex;\n  border: 0;\n  border-radius: 3px;\n  cursor: pointer;\n  font-weight: 500;\n  box-sizing: border-box;\n  line-height: 1.75;\n  letter-spacing: 0.02857em;\n  text-transform: uppercase;\n  padding: ", ";\n  & .init {\n    width: 100%;\n    display: inherit;\n    align-items: inherit;\n    justify-content: inherit;\n  }\n  ", "\n  ",
+    "\n"])), function (_a) {
     var size = _a.size;
     return (buttonTheme.size[size]);
 }, function (_a) {

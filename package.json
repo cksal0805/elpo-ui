@@ -1,6 +1,6 @@
 {
   "name": "elpo-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "UI Component library",
   "main": "./build/index.js",
   "module": "./build/index.es.js",
@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "exam": "cd example && npm start",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook"
   },
   "directories": {
