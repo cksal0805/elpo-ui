@@ -96,7 +96,7 @@ const StyledButton = styled.button<IStyleButtonProps>`
   & .init {
     width: 100%;
     display: inherit;
-    align-items: inherit;
+    align-items: center;
     justify-content: inherit;
   }
   ${({mobileViewsize}) => mobileViewsize && mobileStyle}
