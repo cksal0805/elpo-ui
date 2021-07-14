@@ -22,5 +22,5 @@ export interface IButtonProps {
     icon: React.ReactNode,
     viewSize: string,
   },
-  onClick?: () => void
+  onClick?: (e: any) => void
 } 

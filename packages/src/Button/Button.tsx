@@ -84,7 +84,7 @@ const EndIcon = styled.span`
   margin-right: -4px;
 `
 const StyledButton = styled.button<IStyleButtonProps>`
-  display: inline-flex;
+  display: flex;
   border: 0;
   border-radius: 3px;
   cursor: pointer;
@@ -92,6 +92,7 @@ const StyledButton = styled.button<IStyleButtonProps>`
   box-sizing: border-box;
   letter-spacing: 0.02857em;
   text-transform: uppercase;
+  align-items: center;
   padding: ${({ size }) => (buttonTheme.size[size])};
   & .init {
     width: 100%;
